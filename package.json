@@ -39,6 +39,9 @@
   "dependencies": {
     "msw": "^1.1.0"
   },
+  "peerDependencies": {
+    "@amnis/state": "^0.14.5"
+  },
   "devDependencies": {
     "@amnis/eslint-config-node": "^2.2.2",
     "@amnis/state": "^0.14.5",
