@@ -2,7 +2,7 @@ import {
   contextSetup,
 } from '@amnis/state';
 import {
-  schemaAuth, schemaState, schemaEntity,
+  schemaState, schemaEntity,
 } from '@amnis/state/schema';
 import {
   validateSetup,
@@ -28,7 +28,7 @@ export const mockService: MockService = {
       processes = {},
       baseUrl = '',
       context = await contextSetup({
-        validators: validateSetup([schemaAuth, schemaState, schemaEntity]),
+        validators: validateSetup([schemaState, schemaEntity]),
       }),
     } = opt;
 
