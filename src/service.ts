@@ -7,10 +7,12 @@ import {
 import type { RequestHandler, SetupWorker } from 'msw';
 import type { SetupServer } from 'msw/node';
 import { setupWorker } from 'msw';
-import type { Api, Entity } from '@amnis/state';
+import type { Api } from '@amnis/state';
 import {
-  systemActions,
-  apiActions, apiCreator, entityCreate, systemSelectors,
+  apiKey,
+  dataActions,
+  apiCreate,
+  systemSelectors,
 } from '@amnis/state';
 import type { MockService } from './types.js';
 import { handlersCreate } from './handler.js';
@@ -27,6 +29,8 @@ export const mockService: MockService = {
     const opt = { ...options };
 
     const {
+      hostname = 'http://localhost',
+      baseUrl = '/api',
       processes = {},
       context = await contextSetup({
         schemas: [schemaState, schemaEntity],
@@ -38,22 +42,30 @@ export const mockService: MockService = {
       throw new Error('No active system.');
     }
 
-    const apis: Entity<Api>[] = [];
+    const apis: Api[] = [];
     const handlers: RequestHandler[] = [];
     Object.keys(processes).forEach((key) => {
       const definition = processes[key];
       const { meta, endpoints } = definition;
-      const baseUrl = meta.baseUrl ?? '';
 
-      const apiEntity = entityCreate(apiCreator(meta));
-      apis.push(apiEntity);
+      let systemDomain = hostname;
+      if (!systemDomain.length && typeof window !== 'undefined') {
+        systemDomain = window.location.host;
+      }
+      const combinedUrl = `${systemDomain}${baseUrl}/${key}`;
 
-      handlers.push(...handlersCreate(`${baseUrl}/${key}`, context, endpoints));
+      const apiNext = apiCreate({
+        ...meta,
+        baseUrl: `/${key}`,
+        $system: system.$id,
+      });
+      apis.push(apiNext);
+
+      handlers.push(...handlersCreate(combinedUrl, context, endpoints));
     });
 
-    context.store.dispatch(apiActions.createMany(apis));
-    context.store.dispatch(systemActions.update(system.$id, {
-      $apis: apis.map((a) => a.$id),
+    context.store.dispatch(dataActions.create({
+      [apiKey]: apis,
     }));
 
     // On NodeJS

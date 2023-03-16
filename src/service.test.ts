@@ -1,9 +1,11 @@
-import type { IoProcess, IoProcessDefinition } from '@amnis/state';
-import { ioOutput } from '@amnis/state';
+import type { IoContext, IoProcess, IoProcessDefinition } from '@amnis/state';
+import {
+  apiSelectors,
+  ioOutput,
+} from '@amnis/state';
+import { contextSetup } from '@amnis/state/context';
 import fetch from 'cross-fetch';
 import { mockService } from './service.js';
-
-const baseUrl = 'https://amnis.dev';
 
 /**
  * Create a test process.
@@ -16,7 +18,6 @@ const testProcess: IoProcess = () => async (input, output) => output;
 const testProcessMap: IoProcessDefinition = {
   meta: {
     reducerPath: 'test',
-    baseUrl,
   },
   endpoints: {
     get: {
@@ -28,11 +29,15 @@ const testProcessMap: IoProcessDefinition = {
   },
 };
 
+let context: IoContext;
+
 /**
  * Start the MSW service.
  */
 beforeAll(async () => {
+  context = await contextSetup();
   await mockService.setup({
+    context,
     processes: {
       test: testProcessMap,
     },
@@ -44,9 +49,18 @@ afterAll(() => {
   mockService.stop();
 });
 
+/** Ensure that the test API exists on the context store */
+test('Test API exist', () => {
+  const apis = apiSelectors.selectAll(context.store.getState());
+  expect(apis).toHaveLength(1);
+  expect(apis[0].reducerPath).toBe('test');
+  expect(apis[0].baseUrl).toBe('/test');
+  expect(apis[0].$system).toBeDefined();
+});
+
 /** Test the GET process. */
 test('GET /test/proc1', async () => {
-  const response = await fetch(`${baseUrl}/test/proc1`);
+  const response = await fetch('http://localhost/api/test/proc1');
   expect(response.status).toBe(200);
 
   const json = await response.json();
@@ -55,7 +69,7 @@ test('GET /test/proc1', async () => {
 
 /** Test the POST process. */
 test('POST /test/proc2', async () => {
-  const response = await fetch(`${baseUrl}/test/proc2`, {
+  const response = await fetch('http://localhost/api/test/proc2', {
     method: 'POST',
   });
   expect(response.status).toBe(200);

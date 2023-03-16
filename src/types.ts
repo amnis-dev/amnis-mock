@@ -5,6 +5,8 @@ import type {
 } from 'msw';
 
 export interface MockOptions {
+  hostname?: string;
+  baseUrl?: string;
   processes?: Record<string, IoProcessDefinition>;
   context?: IoContext;
 }
