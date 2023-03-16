@@ -68,7 +68,7 @@ test('Test API exists', () => {
   const apis = apiSelectors.selectAll(context.store.getState());
   expect(apis).toHaveLength(1);
   expect(apis[0].reducerPath).toBe('test');
-  expect(apis[0].baseUrl).toBe('/test');
+  expect(apis[0].baseUrl).toBe('/api/test');
   expect(apis[0].$system).toBeDefined();
 });
 
