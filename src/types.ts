@@ -1,25 +1,19 @@
-import type { IoContext, IoProcessMapMethods } from '@amnis/state';
+import type { IoContext, IoProcessDefinition, IoProcessMapMethods } from '@amnis/state';
 import type {
   RestHandler,
   StartOptions,
 } from 'msw';
 
 export interface MockOptions {
-  processes?: Record<string, IoProcessMapMethods>;
-  baseUrl?: string;
+  processes?: Record<string, IoProcessDefinition>;
   context?: IoContext;
 }
 
 export type MockHandlers = (
   baseUrl: string,
   context: IoContext,
-  process: IoProcessMapMethods,
+  endpoints: IoProcessMapMethods,
 ) => RestHandler[];
-
-export interface MockServiceOptions {
-  baseUrl?: string;
-  context?: IoContext;
-}
 
 export type MockService = {
   setup: (options?: MockOptions) => Promise<void>;

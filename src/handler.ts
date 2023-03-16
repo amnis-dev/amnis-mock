@@ -45,13 +45,13 @@ const resolver: (
 export const handlersCreate: MockHandlers = (
   baseUrl,
   context,
-  processes,
+  endpoints,
 ) => {
   const handlers: RestHandler[] = [];
 
-  Object.keys(processes).forEach((method) => {
+  Object.keys(endpoints).forEach((method) => {
     const m = method as 'get' | 'post';
-    const processMap = processes[m];
+    const processMap = endpoints[m];
     if (processMap) {
       handlers.push(...Object.keys(processMap).map(
         (key) => rest[m](`${baseUrl}/${key}`, resolver(context, processMap[key])),

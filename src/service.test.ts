@@ -1,4 +1,4 @@
-import type { IoProcess, IoProcessMapMethods } from '@amnis/state';
+import type { IoProcess, IoProcessDefinition } from '@amnis/state';
 import { ioOutput } from '@amnis/state';
 import fetch from 'cross-fetch';
 import { mockService } from './service.js';
@@ -13,12 +13,17 @@ const testProcess: IoProcess = () => async (input, output) => output;
 /**
  * Create a test process map methods
  */
-const testProcessMap: IoProcessMapMethods = {
-  get: {
-    proc1: testProcess,
+const testProcessMap: IoProcessDefinition = {
+  meta: {
+    baseUrl,
   },
-  post: {
-    proc2: testProcess,
+  endpoints: {
+    get: {
+      proc1: testProcess,
+    },
+    post: {
+      proc2: testProcess,
+    },
   },
 };
 
@@ -27,7 +32,6 @@ const testProcessMap: IoProcessMapMethods = {
  */
 beforeAll(async () => {
   await mockService.setup({
-    baseUrl,
     processes: {
       test: testProcessMap,
     },

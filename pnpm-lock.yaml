@@ -1,9 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@amnis/eslint-config-node': ^2.2.2
-  '@amnis/state': ^0.14.7
-  '@amnis/tsconfig-node': ^2.2.2
+  '@amnis/eslint-config-node': ^2.2.4
+  '@amnis/state': ^0.15.1
+  '@amnis/tsconfig-node': ^2.2.4
   '@reduxjs/toolkit': 2.0.0-alpha.2
   '@types/node': ^18.14.1
   cross-fetch: ^3.1.5
@@ -20,9 +20,9 @@ dependencies:
   msw: 1.1.0_typescript@4.9.5
 
 devDependencies:
-  '@amnis/eslint-config-node': 2.2.2_7kw3g6rralp5ps6mg3uyzz6azm
-  '@amnis/state': 0.14.7_p2kloprhvm246wfzyzkz4xuium
-  '@amnis/tsconfig-node': 2.2.2_typescript@4.9.5
+  '@amnis/eslint-config-node': 2.2.4_7kw3g6rralp5ps6mg3uyzz6azm
+  '@amnis/state': 0.15.1_p2kloprhvm246wfzyzkz4xuium
+  '@amnis/tsconfig-node': 2.2.4_typescript@4.9.5
   '@reduxjs/toolkit': 2.0.0-alpha.2
   '@types/node': 18.14.1
   cross-fetch: 3.1.5
@@ -36,8 +36,8 @@ devDependencies:
 
 packages:
 
-  /@amnis/eslint-config-node/2.2.2_7kw3g6rralp5ps6mg3uyzz6azm:
-    resolution: {integrity: sha512-9A+aKDSGRGV5Af3mbGSKnORqg4NPg2G8Qcq7g6K0n0QiqV0bvLcPr0HU4TR/oX2/8E5i7xW+4NZsaF8n612UhQ==}
+  /@amnis/eslint-config-node/2.2.4_7kw3g6rralp5ps6mg3uyzz6azm:
+    resolution: {integrity: sha512-8AC06Nu2puR2l4ZCtSSN5x2E1pbB3FllkKVcuamp+FEJRXiv4NAHfiFwYAZ2xDzZ1QmYiCcAm3e4mnxjgH9m1Q==}
     peerDependencies:
       eslint: '>=8.0.0'
     dependencies:
@@ -54,16 +54,16 @@ packages:
       - typescript
     dev: true
 
-  /@amnis/state/0.14.7_p2kloprhvm246wfzyzkz4xuium:
-    resolution: {integrity: sha512-Ub/0f3KSMrDy2F1D1SN1WaqaePWBT/CfEoYkc2Cp/Yqt9fUNa67U/CKA1A8Ua0ymGupkFJqQZBl1pd2Sk6VDJg==}
+  /@amnis/state/0.15.1_p2kloprhvm246wfzyzkz4xuium:
+    resolution: {integrity: sha512-J1i7DeorpCd+IjUJZmERX2t/jVxYxLLNqlgUBRQQW7om7G/OQg7tgr3fsfhzL/2m4MZWVFh8aFFiA/i6T8Fu+w==}
     peerDependencies:
       '@reduxjs/toolkit': '*'
     dependencies:
       '@reduxjs/toolkit': 2.0.0-alpha.2
     dev: true
 
-  /@amnis/tsconfig-node/2.2.2_typescript@4.9.5:
-    resolution: {integrity: sha512-cPnZsloA6iQMZFVsGtWtpoS5HBVuL9VkmU088miYUVW/xF+0f8EMoHMqDERsHrnYXunRedc9AUGL461tB4n2tA==}
+  /@amnis/tsconfig-node/2.2.4_typescript@4.9.5:
+    resolution: {integrity: sha512-S6Zx8eXvUeFX5CwTaVftHEi+VoPnaHQq/x0WcZwFmH3B1V7a7y3If2q+JZjzNMcOIOb9dRDrOKQxFcPgsMJY6A==}
     peerDependencies:
       typescript: '>=4.6.3'
     dependencies:

@@ -1,15 +1,17 @@
 import {
-  contextSetup,
-} from '@amnis/state';
-import {
   schemaState, schemaEntity,
 } from '@amnis/state/schema';
 import {
-  validateSetup,
-} from '@amnis/state/validate';
+  contextSetup,
+} from '@amnis/state/context';
 import type { RequestHandler, SetupWorker } from 'msw';
 import type { SetupServer } from 'msw/node';
 import { setupWorker } from 'msw';
+import type { Api, Entity } from '@amnis/state';
+import {
+  systemActions,
+  apiActions, apiCreator, entityCreate, systemSelectors,
+} from '@amnis/state';
 import type { MockService } from './types.js';
 import { handlersCreate } from './handler.js';
 
@@ -26,17 +28,33 @@ export const mockService: MockService = {
 
     const {
       processes = {},
-      baseUrl = '',
       context = await contextSetup({
-        validators: validateSetup([schemaState, schemaEntity]),
+        schemas: [schemaState, schemaEntity],
       }),
     } = opt;
 
+    const system = systemSelectors.selectActive(context.store.getState());
+    if (!system) {
+      throw new Error('No active system.');
+    }
+
+    const apis: Entity<Api>[] = [];
     const handlers: RequestHandler[] = [];
-    Object.keys(processes).forEach((path) => {
-      const processMapMethod = processes[path];
-      handlers.push(...handlersCreate(`${baseUrl}/${path}`, context, processMapMethod));
+    Object.keys(processes).forEach((key) => {
+      const definition = processes[key];
+      const { meta, endpoints } = definition;
+      const baseUrl = meta.baseUrl ?? '';
+
+      const apiEntity = entityCreate(apiCreator(meta));
+      apis.push(apiEntity);
+
+      handlers.push(...handlersCreate(`${baseUrl}/${key}`, context, endpoints));
     });
+
+    context.store.dispatch(apiActions.createMany(apis));
+    context.store.dispatch(systemActions.update(system.$id, {
+      $apis: apis.map((a) => a.$id),
+    }));
 
     // On NodeJS
     if (typeof window === 'undefined') {
