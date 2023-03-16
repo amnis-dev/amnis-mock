@@ -62,7 +62,7 @@ export const mockService: MockService = {
 
       const apiNext = apiCreate({
         ...meta,
-        baseUrl: `/${key}`,
+        baseUrl: `${baseUrl}/${key}`,
         $system: system.$id,
       });
       apis.push(apiNext);
