@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.3](https://github.com/amnis-dev/amnis-mock/compare/v0.15.2...v0.15.3) (2023-03-16)
+
+
+### Features
+
+* **Context:** Mock service updates the system domain to default value ([3276728](https://github.com/amnis-dev/amnis-mock/commit/3276728ac546a240232a82354dac4beda8b6985d))
+
 ### [0.15.2](https://github.com/amnis-dev/amnis-mock/compare/v0.15.1...v0.15.2) (2023-03-16)
 
 
