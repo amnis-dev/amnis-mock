@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.5](https://github.com/amnis-dev/amnis-mock/compare/v0.15.4...v0.15.5) (2023-03-16)
+
+
+### Bug Fixes
+
+* **baseUrls:** fixed based urls in mock service ([d858351](https://github.com/amnis-dev/amnis-mock/commit/d858351e11bbf293efdfc1ca47d4e416712411cb))
+
 ### [0.15.4](https://github.com/amnis-dev/amnis-mock/compare/v0.15.3...v0.15.4) (2023-03-16)
 
 ### [0.15.3](https://github.com/amnis-dev/amnis-mock/compare/v0.15.2...v0.15.3) (2023-03-16)
