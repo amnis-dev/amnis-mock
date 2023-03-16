@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.1](https://github.com/amnis-dev/amnis-mock/compare/v0.15.0...v0.15.1) (2023-03-16)
+
+
+### Features
+
+* **Amnis:** Updated amnis package ([b2f6223](https://github.com/amnis-dev/amnis-mock/commit/b2f62238f7e2378f57d0344397319d135091b793))
+
+
+### Bug Fixes
+
+* **Packages:** Fixed misplaced peer dependencie version ([48bc673](https://github.com/amnis-dev/amnis-mock/commit/48bc6734f06281a938c41e905bd0a2b4d804eb5d))
+
 ## [0.15.0](https://github.com/amnis-dev/amnis-mock/compare/v0.14.1...v0.15.0) (2023-03-16)
 
 
