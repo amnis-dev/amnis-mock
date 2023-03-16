@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.2](https://github.com/amnis-dev/amnis-mock/compare/v0.15.1...v0.15.2) (2023-03-16)
+
+
+### Features
+
+* **Api:** Added new method of creating a mock service ([7d27a33](https://github.com/amnis-dev/amnis-mock/commit/7d27a3343e068f72e443468f73af11f057ace6cc))
+
 ### [0.15.1](https://github.com/amnis-dev/amnis-mock/compare/v0.15.0...v0.15.1) (2023-03-16)
 
 
