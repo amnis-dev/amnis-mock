@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.15.0](https://github.com/amnis-dev/amnis-mock/compare/v0.14.1...v0.15.0) (2023-03-16)
+
+
+### Features
+
+* **Processers:** Updated mocking library to comply with latest types ([aa70483](https://github.com/amnis-dev/amnis-mock/commit/aa7048302c8e33ce7f5839c57a56af260f55e0d6))
+
 ### [0.14.1](https://github.com/amnis-dev/amnis-mock/compare/v0.14.0...v0.14.1) (2023-03-08)
 
 
