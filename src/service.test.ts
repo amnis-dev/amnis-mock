@@ -15,6 +15,7 @@ const testProcess: IoProcess = () => async (input, output) => output;
  */
 const testProcessMap: IoProcessDefinition = {
   meta: {
+    reducerPath: 'test',
     baseUrl,
   },
   endpoints: {
