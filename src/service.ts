@@ -9,6 +9,7 @@ import type { SetupServer } from 'msw/node';
 import { setupWorker } from 'msw';
 import type { Api } from '@amnis/state';
 import {
+  systemActions,
   apiKey,
   dataActions,
   apiCreate,
@@ -42,16 +43,21 @@ export const mockService: MockService = {
       throw new Error('No active system.');
     }
 
+    let systemDomain = hostname;
+    if (!options?.hostname?.length && typeof window !== 'undefined') {
+      systemDomain = window.location.host;
+    }
+    context.store.dispatch(systemActions.update({
+      $id: system.$id,
+      domain: systemDomain,
+    }));
+
     const apis: Api[] = [];
     const handlers: RequestHandler[] = [];
     Object.keys(processes).forEach((key) => {
       const definition = processes[key];
       const { meta, endpoints } = definition;
 
-      let systemDomain = hostname;
-      if (!systemDomain.length && typeof window !== 'undefined') {
-        systemDomain = window.location.host;
-      }
       const combinedUrl = `${systemDomain}${baseUrl}/${key}`;
 
       const apiNext = apiCreate({

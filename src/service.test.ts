@@ -1,5 +1,7 @@
 import type { IoContext, IoProcess, IoProcessDefinition } from '@amnis/state';
 import {
+  systemSelectors,
+
   apiSelectors,
   ioOutput,
 } from '@amnis/state';
@@ -50,7 +52,19 @@ afterAll(() => {
 });
 
 /** Ensure that the test API exists on the context store */
-test('Test API exist', () => {
+test('Test system domain', () => {
+  const system = systemSelectors.selectActive(context.store.getState());
+
+  if (!system) {
+    expect(system).toBeDefined();
+    return;
+  }
+
+  expect(system.domain).toBe('http://localhost');
+});
+
+/** Ensure that the test API exists on the context store */
+test('Test API exists', () => {
   const apis = apiSelectors.selectAll(context.store.getState());
   expect(apis).toHaveLength(1);
   expect(apis[0].reducerPath).toBe('test');
