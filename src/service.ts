@@ -46,7 +46,7 @@ export const mockService: MockService = {
 
     let systemDomain = hostname;
     if (!options?.hostname && typeof window !== 'undefined') {
-      systemDomain = window.location.host;
+      systemDomain = window.location.origin;
     }
     context.store.dispatch(systemActions.update({
       $id: system.$id,
