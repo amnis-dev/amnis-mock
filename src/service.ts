@@ -36,6 +36,7 @@ export const mockService: MockService = {
       context = await contextSetup({
         schemas: [schemaState, schemaEntity],
       }),
+      debug = false,
     } = opt;
 
     const system = systemSelectors.selectActive(context.store.getState());
@@ -44,7 +45,7 @@ export const mockService: MockService = {
     }
 
     let systemDomain = hostname;
-    if (!options?.hostname?.length && typeof window !== 'undefined') {
+    if (!options?.hostname && typeof window !== 'undefined') {
       systemDomain = window.location.host;
     }
     context.store.dispatch(systemActions.update({
@@ -58,7 +59,13 @@ export const mockService: MockService = {
       const definition = processes[key];
       const { meta, endpoints } = definition;
 
-      const combinedUrl = `${systemDomain}${baseUrl}/${key}`;
+      const slash = baseUrl.startsWith('/') ? '' : '/';
+      const combinedUrl = `${systemDomain}${slash}${baseUrl}/${key}`;
+
+      if (debug) {
+        // eslint-disable-next-line no-console
+        console.debug(`Setting up mock process ${key} on path ${combinedUrl}`);
+      }
 
       const apiNext = apiCreate({
         ...meta,

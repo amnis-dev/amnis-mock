@@ -9,6 +9,7 @@ export interface MockOptions {
   baseUrl?: string;
   processes?: Record<string, IoProcessDefinition>;
   context?: IoContext;
+  debug?: boolean;
 }
 
 export type MockHandlers = (
