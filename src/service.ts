@@ -64,7 +64,7 @@ export const mockService: MockService = {
 
       if (debug) {
         // eslint-disable-next-line no-console
-        console.debug(`Setting up mock process ${key} on path ${combinedUrl}`);
+        console.debug(`Setting up mock process '${key}' on path '${combinedUrl}'`);
       }
 
       const apiNext = apiCreate({
