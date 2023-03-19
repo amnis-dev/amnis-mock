@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.7](https://github.com/amnis-dev/amnis-mock/compare/v0.15.6...v0.15.7) (2023-03-19)
+
+
+### Features
+
+* **Amnis:** Updated amnis state ([95ffb40](https://github.com/amnis-dev/amnis-mock/commit/95ffb4067fdc78bee3e5e9d5de82f30b53b925b2))
+* **Request:** Added support for query and params on requests ([a8f5baf](https://github.com/amnis-dev/amnis-mock/commit/a8f5bafc84e931f461a2ab818225d5742049ebb6))
+
+
+### Bug Fixes
+
+* **Web:** Fixed issue with incorrect hostname of web applications ([4666c2b](https://github.com/amnis-dev/amnis-mock/commit/4666c2b6704484def5953b7085bc74f453489004))
+
 ### [0.15.6](https://github.com/amnis-dev/amnis-mock/compare/v0.15.5...v0.15.6) (2023-03-17)
 
 
