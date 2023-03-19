@@ -4,7 +4,7 @@ import type {
 import {
   auditCreator, auditKey, entityCreate,
 } from '@amnis/state';
-import type { MockedRequest, ResponseTransformer, RestContext } from 'msw';
+import type { ResponseTransformer, RestContext, RestRequest } from 'msw';
 
 function httpAuthorizationParse(authorization?: string | null): string | undefined {
   if (!authorization) {
@@ -23,7 +23,7 @@ function httpAuthorizationParse(authorization?: string | null): string | undefin
 /**
  * Sets up the input object for processors.
  */
-export const mwInput = async (req: MockedRequest, system: System): Promise<IoInput> => {
+export const mwInput = async (req: RestRequest, system: System): Promise<IoInput> => {
   /**
    * Mock a local ip.
    */
@@ -40,9 +40,23 @@ export const mwInput = async (req: MockedRequest, system: System): Promise<IoInp
    */
   const input: IoInput = {
     body,
+    query: {},
     sessionEncrypted,
     ip,
   };
+
+  /**
+   * Extract query and param data.
+   */
+  const queryEntries = req.url.searchParams.entries() ?? [];
+  // eslint-disable-next-line no-restricted-syntax
+  for (const [key, value] of queryEntries) {
+    input.query[key] = value;
+  }
+
+  if (typeof req.params?.param === 'string') {
+    input.param = req.params.param;
+  }
 
   /**
    * Extract authorization header.
