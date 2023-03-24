@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/amnis-dev/amnis-mock/compare/v0.15.7...v0.16.0) (2023-03-24)
+
+
+### Features
+
+* **Refactor:** Completed refactor with Amnis State ([248561a](https://github.com/amnis-dev/amnis-mock/commit/248561a970eebd2bbf9de775b905cb7b27e14e1c))
+
 ### [0.15.7](https://github.com/amnis-dev/amnis-mock/compare/v0.15.6...v0.15.7) (2023-03-19)
 
 
