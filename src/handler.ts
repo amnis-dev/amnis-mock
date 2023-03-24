@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { IoContext, IoProcess } from '@amnis/state';
-import { ioOutput, systemSelectors } from '@amnis/state';
+import { systemSlice, ioOutput } from '@amnis/state';
 import type {
   ResponseResolver,
   ResponseTransformer,
@@ -19,7 +19,7 @@ const resolver: (
   context,
   process,
 ) => async (req, res, ctx) => {
-  const system = systemSelectors.selectActive(context.store.getState());
+  const system = systemSlice.select.active(context.store.getState());
 
   if (!system) {
     return res(

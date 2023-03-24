@@ -1,8 +1,13 @@
 import type {
-  IoContext, IoInput, IoOutput, JWTAccess, System,
+  IoContext,
+  IoInput,
+  IoOutput,
+  JWTAccess,
+  System,
 } from '@amnis/state';
 import {
-  auditCreator, auditKey, entityCreate,
+  auditSlice,
+  entityCreate,
 } from '@amnis/state';
 import type { ResponseTransformer, RestContext, RestRequest } from 'msw';
 
@@ -127,7 +132,7 @@ export const mwAudit = async (
   /**
    * Create the audit.
    */
-  const audit = auditCreator({
+  const audit = auditSlice.create({
     action: `${req.method}:${req.url}`,
     completed: output.status === 200,
     inputBody: body,
@@ -148,6 +153,6 @@ export const mwAudit = async (
    * Create the record in the database.
    */
   context.database.create({
-    [auditKey]: [entityCreate(audit)],
+    [auditSlice.key]: [entityCreate(audit)],
   });
 };

@@ -15,6 +15,8 @@ export default defineConfig({
         exports: 'named',
         globals: {
           '@amnis/state': 'AmnisState',
+          '@amnis/state/schema': 'AmnisStateSchema',
+          '@amnis/state/context': 'AmnisStateContext',
           '@reduxjs/toolkit': 'ReduxToolkit',
           msw: 'MSW',
         },
@@ -22,7 +24,7 @@ export default defineConfig({
       external: [
         '@amnis/state',
         '@amnis/state/schema',
-        '@amnis/state/validate',
+        '@amnis/state/context',
         '@reduxjs/toolkit',
         'msw',
         'msw/node',

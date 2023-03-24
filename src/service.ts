@@ -1,5 +1,5 @@
 import {
-  schemaState, schemaEntity,
+  schemaState,
 } from '@amnis/state/schema';
 import {
   contextSetup,
@@ -9,11 +9,10 @@ import type { SetupServer } from 'msw/node';
 import { setupWorker } from 'msw';
 import type { Api } from '@amnis/state';
 import {
-  systemActions,
+  systemSlice,
   apiKey,
   dataActions,
   apiCreate,
-  systemSelectors,
 } from '@amnis/state';
 import type { MockService } from './types.js';
 import { handlersCreate } from './handler.js';
@@ -34,12 +33,12 @@ export const mockService: MockService = {
       baseUrl = '/api',
       processes = {},
       context = await contextSetup({
-        schemas: [schemaState, schemaEntity],
+        schemas: [schemaState],
       }),
       debug = false,
     } = opt;
 
-    const system = systemSelectors.selectActive(context.store.getState());
+    const system = systemSlice.select.active(context.store.getState());
     if (!system) {
       throw new Error('No active system.');
     }
@@ -48,7 +47,7 @@ export const mockService: MockService = {
     if (!options?.hostname && typeof window !== 'undefined') {
       systemDomain = window.location.origin;
     }
-    context.store.dispatch(systemActions.update({
+    context.store.dispatch(systemSlice.action.update({
       $id: system.$id,
       domain: systemDomain,
     }));
