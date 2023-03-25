@@ -10,6 +10,7 @@ export interface MockOptions {
   processes?: Record<string, IoProcessDefinition>;
   context?: IoContext;
   debug?: boolean;
+  clearStorage?: boolean;
 }
 
 export type MockHandlers = (

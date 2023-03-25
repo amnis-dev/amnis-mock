@@ -9,6 +9,7 @@ import type { SetupServer } from 'msw/node';
 import { setupWorker } from 'msw';
 import type { Api } from '@amnis/state';
 import {
+  localStorage,
   systemSlice,
   apiKey,
   dataActions,
@@ -36,7 +37,12 @@ export const mockService: MockService = {
         schemas: [schemaState],
       }),
       debug = false,
+      clearStorage = true,
     } = opt;
+
+    if (clearStorage) {
+      localStorage().clear();
+    }
 
     const system = systemSlice.select.active(context.store.getState());
     if (!system) {
