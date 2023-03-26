@@ -41,7 +41,8 @@ export const mockService: MockService = {
     } = opt;
 
     if (clearStorage) {
-      localStorage().clear();
+      localStorage().removeItem('state-entities');
+      localStorage().removeItem('state-meta');
     }
 
     const system = systemSlice.select.active(context.store.getState());
