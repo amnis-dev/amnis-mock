@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.2](https://github.com/amnis-dev/amnis-mock/compare/v0.16.1...v0.16.2) (2023-04-21)
+
+
+### Features
+
+* **PNPM:** Updated lock file with latest pnpm ([9dfa7dc](https://github.com/amnis-dev/amnis-mock/commit/9dfa7dce58a1561f8f8a58b13def88684b4fe846))
+
 ### [0.16.1](https://github.com/amnis-dev/amnis-mock/compare/v0.16.0...v0.16.1) (2023-04-21)
 
 
