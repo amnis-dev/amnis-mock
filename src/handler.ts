@@ -33,7 +33,7 @@ const resolver: (
   const ctxCookies: ResponseTransformer<any, any>[] = mwCookies(output, ctx);
 
   return res(
-    ctx.status(200),
+    ctx.status(output.status),
     ctx.json(output.json ?? {}),
     ...ctxCookies,
   );
