@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.1](https://github.com/amnis-dev/amnis-mock/compare/v0.16.0...v0.16.1) (2023-04-21)
+
+
+### Features
+
+* **Storage:** Added option to clear local storage when starting the mock serivce ([001c937](https://github.com/amnis-dev/amnis-mock/commit/001c937116e1c48069dfc16c8799094578f9ca03))
+* **Storage:** Mock setup only removes state keys from localstorage ([b56b9b1](https://github.com/amnis-dev/amnis-mock/commit/b56b9b1e14f815853eb59cecef3016f50ab51c9a))
+
+
+### Bug Fixes
+
+* **Status:** Resolved issue with response status always returning 200 ([62a86a0](https://github.com/amnis-dev/amnis-mock/commit/62a86a0c7f76dc2cd8f8df0f495016b69af91e5f))
+
 ## [0.16.0](https://github.com/amnis-dev/amnis-mock/compare/v0.15.7...v0.16.0) (2023-03-24)
 
 
