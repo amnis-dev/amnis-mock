@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.3](https://github.com/amnis-dev/amnis-mock/compare/v0.16.2...v0.16.3) (2023-04-27)
+
+
+### Bug Fixes
+
+* **cookies:** Reordered context response for cookies ([9551033](https://github.com/amnis-dev/amnis-mock/commit/95510334e2a5d75f63879f440bd33dc88f7e9dd2))
+
 ### [0.16.2](https://github.com/amnis-dev/amnis-mock/compare/v0.16.1...v0.16.2) (2023-04-21)
 
 
