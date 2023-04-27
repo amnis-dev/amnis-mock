@@ -101,7 +101,7 @@ export const mwCookies = (
     if (cookieValue === undefined) {
       cookieOptions.expires = new Date();
     }
-    ctxCookies.push(ctx.cookie(cookieName, cookieValue || '', cookieOptions));
+    ctxCookies.push(ctx.cookie(cookieName, cookieValue ?? '', cookieOptions));
   });
   return ctxCookies;
 };

@@ -34,8 +34,8 @@ const resolver: (
 
   return res(
     ctx.status(output.status),
-    ctx.json(output.json ?? {}),
     ...ctxCookies,
+    ctx.json(output.json ?? {}),
   );
 };
 
