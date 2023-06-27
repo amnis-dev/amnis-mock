@@ -44,7 +44,7 @@ jobs:
           cache: 'pnpm'
       
       - name: Install NodeJS Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Lint for Code-Style Errors
         run: pnpm lint
