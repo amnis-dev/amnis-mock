@@ -36,6 +36,9 @@
     "lint": "tsc --noEmit && eslint --ext .ts --ext .tsx \"./\"",
     "clean": "rimraf ./dist ./lib ./types ./tsconfig.build.tsbuildinfo"
   },
+  "resolutions": {
+    "semver": "7.5.3"
+  },
   "dependencies": {
     "msw": "^1.1.0"
   },
