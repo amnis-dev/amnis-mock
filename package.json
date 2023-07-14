@@ -52,7 +52,7 @@
     "@reduxjs/toolkit": "2.0.0-beta.0",
     "@types/node": "^18.14.1",
     "cross-fetch": "^3.1.5",
-    "eslint": "^8.34.0",
+    "eslint": "^8.44.0",
     "msw": "^1.1.0",
     "rimraf": "^5.0.1",
     "ts-node": "^10.9.1",
