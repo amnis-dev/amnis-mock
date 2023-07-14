@@ -1,20 +1,33 @@
-name: Package
+on:
+  push:
+    branches:
+      - main
 
-on: workflow_dispatch
+permissions:
+  contents: write
+  pull-requests: write
+
+name: release-please
 
 jobs:
-  build_and_publish:
+  release:
     runs-on: ubuntu-latest
-    name: Build and Publish
-
     steps:
+    - uses: google-github-actions/release-please-action@v3
+      id: release
+      with:
+        release-type: node
+        package-name: release-please-action
 
     - name: Checkout Respository
       uses: actions/checkout@v3
+      if: ${{ steps.release.outputs.release_created }}
+      
 
     - uses: pnpm/action-setup@v2
       with:
         version: latest
+      if: ${{ steps.release.outputs.release_created }}
 
     - name: Setup NodeJS with PNPM Caching
       uses: actions/setup-node@v3
@@ -23,14 +36,18 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
         scope: '@amnis'
         cache: 'pnpm'
+      if: ${{ steps.release.outputs.release_created }}
 
     - name: Install NodeJS Dependencies
       run: pnpm install --frozen-lockfile
+      if: ${{ steps.release.outputs.release_created }}
 
     - name: Build Project
       run: pnpm build
+      if: ${{ steps.release.outputs.release_created }}
 
     - name: Publish Project
       run: pnpm publish --access public
+      if: ${{ steps.release.outputs.release_created }}
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

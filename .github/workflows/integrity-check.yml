@@ -1,11 +1,8 @@
 name: Integrity Check
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [opened, synchronize, reopened]
 
 jobs:
 
@@ -44,7 +41,7 @@ jobs:
           cache: 'pnpm'
       
       - name: Install NodeJS Dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Update Amnis Dependencies
         run: pnpm up "@amnis/*"
