@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/amnis-dev/amnis-mock/compare/v0.16.3...v0.17.0) (2023-07-14)
+
+
+### Features
+
+* **Dependencies:** Updated core packages ([0d14bcb](https://github.com/amnis-dev/amnis-mock/commit/0d14bcbf9cb83f80f5342c101593f976c7998fe2))
+* **Workflow:** Added new workflow ([f7f1fdd](https://github.com/amnis-dev/amnis-mock/commit/f7f1fddda4c48b98a9ccb73adc188800eb1ae166))
+
 ### [0.16.3](https://github.com/amnis-dev/amnis-mock/compare/v0.16.2...v0.16.3) (2023-04-27)
 
 
