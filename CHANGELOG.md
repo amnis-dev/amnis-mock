@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.1](https://github.com/amnis-dev/amnis-mock/compare/v0.17.0...v0.17.1) (2023-07-14)
+
+
+### Bug Fixes
+
+* **Packages:** Fixed issue with eslint audit ([984152d](https://github.com/amnis-dev/amnis-mock/commit/984152dd5ee5f29adee19d72b80caeb2c7bf9f65))
+* **Workflow:** Added change to workflow ([cf6b9ce](https://github.com/amnis-dev/amnis-mock/commit/cf6b9ce1b27fd1f25d3825cd09aad09e4abc5980))
+* **Workflow:** Fixed workflow to include updated the amnis dependencies ([ffc6555](https://github.com/amnis-dev/amnis-mock/commit/ffc6555195203b67ff3786b3243866f1e6bf598b))
+
 ## [0.17.0](https://github.com/amnis-dev/amnis-mock/compare/v0.16.3...v0.17.0) (2023-07-14)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@amnis/mock",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "description": "Local API mocking for Amnis processors.",
   "keywords": [],
   "author": "Eric Crowell <admin@amnis.dev>",
