@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.2](https://github.com/amnis-dev/amnis-mock/compare/v0.17.1...v0.17.2) (2023-07-14)
+
+
+### Bug Fixes
+
+* packages ([#4](https://github.com/amnis-dev/amnis-mock/issues/4)) ([402a754](https://github.com/amnis-dev/amnis-mock/commit/402a754a9c18131fbfc0908a93ce27f18b820758))
+
 ## [0.17.1](https://github.com/amnis-dev/amnis-mock/compare/v0.17.0...v0.17.1) (2023-07-14)
 
 
